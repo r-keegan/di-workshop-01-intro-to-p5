@@ -124,10 +124,13 @@ var b = 0
 ```
 
 **What might these lines do?**
+This sets the colour of the square to red.
 
 **What happens if you change the numbers?**
+This changes the colour of the square.
 
 **What numbers are allowed / What numbers have an effect?**
+Each channel (Red, Green, and Blue are each channels) is 8 bits, so they are each limited to 256, in this case 255 since 0 is included. 
 
 Look at this line:
 
@@ -136,15 +139,21 @@ createCanvas(400, 400)
 ```
 
 **What does createCanvas do?**
+ Creates a canvas element in the document, and sets the dimensions of it in pixels.
 
 **What happens if you change the numbers?**
+It changes the size of the canvas
 
 **What numbers are allowed/what numbers have an effect?**
+Maximum height/width: 32,767 pixels Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
 
 **What happens if you add/remove a number?**
+If you remove a number, the canvas disappears. If you add a number the canvas takes the first two numbers.
 
 **Can you guess what the `function setup() {` part does? What happens if you
 change the name of setup?**
+
+Variables declared within setup() are not accessible within other functions, There can only be one setup() function for each program and it should not be called again after it's initial execution.
 
 Look at this line:
 
@@ -153,13 +162,17 @@ background(r, g, b)
 ```
 
 **What does background do?**
+Combines all the channels/variables of Red, Blue and Green to create a combined colour.
 
 **What happens if you change the order of the letters in background? What does
 this tell you about how the computer uses them?**
+They change colour based on the order it is set. Meaning it must impliment them sequentially.
 
 **What happens if you change the number of letters?**
+It again changes the colour, but only up to 4.
 
 **What happens if you change the letters for different ones?**
+it either disappears, crashes or turns white.
 
 # Sketch B
 
@@ -183,11 +196,14 @@ function setup() {
 ```
 
 **What does setup do?**
+Variables declared within setup() are not accessible within other functions, There can only be one setup() function for each program and it should not be called again after it's initial execution.
 
 **What do `{` `}` mean? What happens if you remove one?**
+The program crashes
 
 **What do the numbers in `background(0, 0, 0)` do? What happens when you change
 them? How is this different from Sketch A?**
+We are no longer setting the variables to red, green and blue. There is already a background function which will set the RGB when the numbers are specified.
 
 Now look at these lines:
 
@@ -199,6 +215,7 @@ function draw() {
 ```
 
 **What does draw do?**
+Called directly after setup(), the draw() function continuously executes the lines of code contained inside its block until the program is stopped
 
 Now look at:
 
@@ -207,11 +224,14 @@ fill(255, 0, 0)
 ```
 
 **What do these numbers do? What happens when you change them?**
+It allows you to set the colour of the draw shape
 
 **What does fill mean? What happens if you change it to stroke?**
+Stoke and fill are similar however, fill is an opqaue colour and stoke has just an outline of the preset colour.
 
 **What happens if you remove (or comment out) this line? What about if you
 include both fill and stroke on seperate lines?**
+The colour defauklts ot white if commented out, the fill and stoke are set according to your RGB presets.
 
 Now look at this line:
 
@@ -220,13 +240,17 @@ ellipse(mouseX, mouseY, 30, 30)
 ```
 
 **What does `ellipse` do?**
+Sets the shape
 
 **What happens if you change the numbers?**
+It changes the size of the ellipse - elongates it, makes it smaller, etc.
 
 **What do `mouseX` and `mouseY` mean?**
+It is the coordinates of the mouse location on an X and Y plane.
+
 
 **What happens if you change the order of the items between the `(` `)`?**
-
+The planes are implemented sequentially causing the drawing with the mouse to look odd.
 ---
 
 **What happens if you add `background(0)` after `draw() {`? Why?**
@@ -255,16 +279,22 @@ if (mouseIsPressed) {
 ```
 
 **What does `mouseIsPressed` mean?**
+The mousePressed variable stores whether or not a mouse button is currently being pressed.
+
 
 **What happens if you change `mouseIsPressed` to `keyIsPressed`?** You’ll need
 to click on the sketch so it registers keyboard events – use the ctrl key if you
 have issues with the keyboard.
+The keyIsPressed variable stores whether or not a key is currently being pressed.
 
 **What does if / else do?**
+Creates a true or false condition for the computer to execute.
 
 **What happens if you remove the { } or ( )? Why?**
+The program crashes.
 
 **What happens if you change 255 to mouseX ? Why?**
+It changes the colour of the draw shape based on the mouse location and the RGB co-ordinates.
 
 **Remove the outline of the circle. Use Google and the P5.js reference to help
 you.**
